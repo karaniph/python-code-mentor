@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - Python Code Mentor</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f0f2f5;
+            margin: 0;
+            color: #333;
+        }
+        .card {
+            background: white;
+            padding: 2rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+        }
+        .success-icon {
+            color: #4caf50;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        h1 { margin: 0 0 1rem; }
+        .key-box {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: #2c3e50;
+            position: relative;
+            cursor: pointer;
+        }
+        .key-box:hover {
+            border-color: #adb5bd;
+            background: #e9ecef;
+        }
+        .copy-hint {
+            font-size: 0.8rem;
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+        .btn:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="success-icon">🎉</div>
+        <h1>Payment Successful!</h1>
+        <p>Thank you for upgrading Python Code Mentor.</p>
+        
+        <p>Here is your Pro License Key:</p>
+        
+        <div class="key-box" onclick="copyKey()" id="licenseKey">PRO-PYTHON-2025</div>
+        <div class="copy-hint" id="copyHint">Click to copy</div>
+        <p><strong>To Activate:</strong><br>
+        Open VS Code → Run "Enter License Key" → Paste the key above.</p>
+    </div>
+    <script>
+        function copyKey() {
+            const key = document.getElementById('licenseKey').innerText;
+            navigator.clipboard.writeText(key).then(() => {
+                document.getElementById('copyHint').innerText = "Copied to clipboard!";
+                document.getElementById('licenseKey').style.borderColor = "#4caf50";
+                setTimeout(() => {
+                    document.getElementById('copyHint').innerText = "Click to copy";
+                    document.getElementById('licenseKey').style.borderColor = "#dee2e6";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
